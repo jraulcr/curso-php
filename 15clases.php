@@ -16,7 +16,6 @@
 	//$pegaso->arrancar();
 
 	echo " Mazda tiene: " . $mazda->getRuedas() . " ruedas.  <br/>";
-
 	echo " Mazda tiene: " . $mazda->getMotor(). " cc.  <br/>";
 
 	?>
