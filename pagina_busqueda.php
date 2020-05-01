@@ -7,14 +7,15 @@ and open the template in the editor.
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <title>pagina_busqueda php</title>
     </head>
     <body>
-        <?php
+      <?php
 
+      $busqueda = $_GET["buscar"];
+      
         require ("datosConexionBBDD.php");
 
-        //$conexion = mysqli_connect($db_host, $db_usuario, $db_contra, $db_nombre);
         $conexion = mysqli_connect($db_host, $db_usuario, $db_contra);
         
         //Si ha fallado la conexion con la BB.DD. p.e.: en vez de 'localhost' se escribe 'localhossst'
@@ -32,7 +33,7 @@ and open the template in the editor.
       
          //Query
         /*$consulta = "SELECT * FROM DATOSPERSONALES";*/
-        $consulta = "SELECT * FROM ARTICULOS WHERE PAISDEORIGEN='ESPAÑA'";
+        $consulta = "SELECT * FROM ARTICULOS WHERE nombrearticulo like '%$busqueda%'";
         //Resultset
         $resultados = mysqli_query($conexion, $consulta);        
 
@@ -46,17 +47,6 @@ and open the template in the editor.
         echo "<br> ";
           }   
 
-       /* while ($fila= mysqli_fetch_row($resultados)){      
-            
-        echo $fila[0] . " ";
-        echo $fila[1] . " ";
-        echo $fila[2] . " ";
-        echo $fila[3] . " ";
-        echo $fila[4] . " ";
-        echo "<br> ";       
-        
-        }*/
-        
         mysqli_close($conexion);
         
         ?>
