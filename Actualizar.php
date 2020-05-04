@@ -37,8 +37,8 @@ and open the template in the editor.
             mysqli_set_charset($conexion, "utf8");
 
             //Query
-            $consulta = "INSERT INTO articulos (CODIGOARTICULO, SECCION, FECHA, IMPORTADO, NOMBREARTICULO, PAISDEORIGEN, PRECIO) "
-                    . "values ('$cod', '$sec', '$fec', '$im', '$nom', '$por', '$pre')";
+            $consulta = "UPDATE articulos SET CODIGOARTICULO='$cod', SECCION='$sec', FECHA='$fec', IMPORTADO='$im', NOMBREARTICULO='$nom', PAISDEORIGEN='$por', PRECIO='$pre' "
+                    . "WHERE CODIGOARTICULO='$cod'";
             //Resultset
             $resultados = mysqli_query($conexion, $consulta);
             

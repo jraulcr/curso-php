@@ -14,11 +14,11 @@ and open the template in the editor.
 
             $cod = $_GET["c_art"];
             $sec = $_GET["seccion"];
+            $nom = $_GET["n_art"];
+            $pre = $_GET["precio"];
             $fec = $_GET["fecha"];
             $im = $_GET["importado"];
-            $nom = $_GET["n_art"];
             $por = $_GET["p_orig"];
-            $pre = $_GET["precio"];           
         
             require ("datosConexionBBDD.php");
             $conexion = mysqli_connect($db_host, $db_usuario, $db_contra);
@@ -36,27 +36,21 @@ and open the template in the editor.
             //Utilizar los caracteres latinos
             mysqli_set_charset($conexion, "utf8");
 
-            //Query
-            $consulta = "INSERT INTO articulos (CODIGOARTICULO, SECCION, FECHA, IMPORTADO, NOMBREARTICULO, PAISDEORIGEN, PRECIO) "
-                    . "values ('$cod', '$sec', '$fec', '$im', '$nom', '$por', '$pre')";
+            //Query 'articulos'
+            $consulta = "DELETE FROM ARTICULOS WHERE CODIGOARTICULO = '$cod'";
             //Resultset
             $resultados = mysqli_query($conexion, $consulta);
             
             //Verificamos si los registros se han registrado correctamente
-            if($resultados==false){
+            if(mysqli_affected_rows($conexion)==0){
                 echo ("Error en la consulta");
             }else{
-                echo ("Registro guardado<br><br>");
-                echo "<table><tr><td> ";
-                echo "$cod</td><td>";
-                echo "$sec</td><td>";
-                echo "$fec</td><td>";
-                echo "$im</td><td>";
-                echo "$nom</td><td>";
-                echo "$por</td><td>";
-                echo "$pre";
-                echo "</td></tr></table>";
-                echo "<br> ";
+               // echo ("Registro eliminado");                
+                if(mysqli_affected_rows($conexion)==1){
+                    echo("Se ha eliminado " . mysqli_affected_rows($conexion) . " registro");
+                }else{
+                    echo("Se ha eliminado " . mysqli_affected_rows($conexion) . " registros");
+                }                
             }
 
             mysqli_close($conexion);
