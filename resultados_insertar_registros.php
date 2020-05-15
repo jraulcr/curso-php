@@ -12,7 +12,14 @@ and open the template in the editor.
     <body>
       <?php
 
-        $pais = $_GET["buscar"];
+        $c_art = $_GET["buscar"];
+        $secc = $_GET["buscar"];
+        $n_art = $_GET["buscar"];
+        $pre = $_GET["buscar"];
+        $fec = $_GET["buscar"];
+        $imp = $_GET["buscar"];
+        $p_ori = $_GET["buscar"];
+        $enviando = $_GET["buscar"];
       
         require ("datosConexionBBDD.php");
 
