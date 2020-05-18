@@ -12,7 +12,8 @@ and open the template in the editor.
     <body>
         <?php
 
-        $busqueda =$_GET["buscar"];
+        $busqueda_sec = $_GET["seccion"];
+        $busqueda_porig = $_GET["p_orig"];
         
         try {
 
@@ -22,11 +23,14 @@ and open the template in the editor.
             
             $base->exec("SET CHARACTER SET utf8");
             
-            $sql = "SELECT NOMBREARTICULO, SECCION, PRECIO, PAISDEORIGEN FROM ARTICULOS WHERE NOMBREARTICULO = ?";
+          /*  $sql = "SELECT NOMBREARTICULO, SECCION, PRECIO, PAISDEORIGEN FROM ARTICULOS WHERE NOMBREARTICULO = ?";*/
+            $sql = "SELECT NOMBREARTICULO, SECCION, PRECIO, PAISDEORIGEN FROM ARTICULOS WHERE SECCION = :SECC AND PAISDEORIGEN = :PORIG";
+            
             
             $resultado=$base->prepare($sql);
             
-            $resultado->execute(array($busqueda));
+            //$resultado->execute(array($busqueda));
+            $resultado->execute(array(":SECC"=>$busqueda_sec, ":PORIG"=>$busqueda_porig));
             
             while($registro=$resultado->fetch(PDO::FETCH_ASSOC)){
                 

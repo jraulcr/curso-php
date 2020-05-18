@@ -11,7 +11,8 @@ and open the template in the editor.
     </head>
     <body>        
         <form action="28Pagina_busqueda_PDO.php" method="get">            
-            <label>Buscar: <input type="text" name="buscar"></label>
+            Sección: <input type="text" name="seccion">
+            País de origen: <input type="text" name="p_orig"><br>
             <input type="submit" name="enviando" value="¡Dale!">            
         </form>
     </body>
