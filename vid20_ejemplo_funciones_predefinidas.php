@@ -24,9 +24,9 @@
 	}
 
 
-	echo (frase_mayus("Esto es una prueba.", false));
+	echo (frase_mayus(" Esto es una prueba. ", false));
 
-/*
+
 	function suma($num1, $num2){
 
 		$resultado=$num1+$num2;
@@ -35,17 +35,17 @@
 
 	}
 
-		echo (suma(5, 4));
-*/
+		echo (suma(5, 4)) . " ";
 
-/*
-	$palabra = "JUAN";
-	$palabra2 = "juan";
+
+
+	$palabra = "JUAN ";
+	$palabra2 = "juan ";
 
 	echo (strtolower($palabra));
 
 	echo (strtoupper($palabra2));
-*/
+
 	?>
 </body>
 </html>
