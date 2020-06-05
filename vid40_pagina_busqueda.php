@@ -4,7 +4,7 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<html>
+<html lang="es">
     <head>
         <meta charset="UTF-8">
         <title>pagina_busqueda php</title>
@@ -20,7 +20,7 @@ and open the template in the editor.
         
         //Si ha fallado la conexion con la BB.DD. p.e.: en vez de 'localhost' se escribe 'localhossst'
         if(mysqli_connect_errno()){
-            echo "<br>***Fallo al conectar la BB.DD***<br>";
+            echo "Fallo al conectar la BB.DD";
             //Sale del codigo PHP
             exit();
         }
@@ -30,21 +30,22 @@ and open the template in the editor.
         
         //Utilizar los caracteres latinos
         mysqli_set_charset($conexion, "utf8");         
-      
+       
          //Query
-        /*$consulta = "SELECT * FROM DATOSPERSONALES";*/
-        $consulta = "SELECT * FROM ARTICULOS WHERE nombrearticulo like '%$busqueda%'";
+        $consulta = "select * from productos where nombrearticulo like '%$busqueda%'";
         //Resultset
         $resultados = mysqli_query($conexion, $consulta);        
 
         while ($fila = mysqli_fetch_array($resultados, MYSQLI_ASSOC)){          
         
-        echo "<table><tr><td> ";
-        echo $fila['SECCION'] . "</td><td>";
-        echo $fila['NOMBREARTICULO'] . "</td><td>";
-        echo $fila['PAISDEORIGEN'] . "";
-        echo "</td></tr></table>";  
-        echo "<br> ";
+            echo "<table><tr><td>";
+            echo $fila['CODIGOARTICULO'] . "</td><td>";
+            echo $fila['NOMBREARTICULO'] . "</td><td>";
+            echo $fila['SECCION'] . "</td><td>";
+            echo $fila['IMPORTADO'] . "</td><td>";
+            echo $fila['PRECIO'] . "</td><td>";
+            echo $fila['PAISDEORIGEN'] . "";
+            echo "</td></tr></table><br> ";
           }   
 
         mysqli_close($conexion);

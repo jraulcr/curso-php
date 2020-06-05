@@ -17,7 +17,7 @@ and open the template in the editor.
 
             //Si ha fallado la conexion con la BB.DD. p.e.: en vez de 'localhost' se escribe 'localhossst'
             if (mysqli_connect_errno()) {
-                echo "<br>***Fallo al conectar la BB.DD***<br>";
+                echo "<br>Fallo al conectar la BB.DD.<br>";
                 //Sale del codigo PHP
                 exit();
             }
@@ -29,10 +29,9 @@ and open the template in the editor.
             mysqli_set_charset($conexion, "utf8");
 
             //Query
-            $consulta = "INSERT INTO articulos (SECCION, FECHA, NOMBREARTICULO, PAISDEORIGEN, PRECIO) values ('CONFECCION', '30/05/2020', 'Tanga', 'China', '50,99')";
+            $consulta = "INSERT INTO PRODUCTOS (CODIGOARTICULO, SECCION, NOMBREARTICULO) values ('AR44', 'DEPORTES', 'RAQUETA BADMINTON')";
             //Resultset
             $resultados = mysqli_query($conexion, $consulta);
-
 
             mysqli_close($conexion);
 

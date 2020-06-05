@@ -28,7 +28,7 @@ body{
 
 <body>
 <h1>Eliminación de Artículos</h1>
-<form name="form1" method="get" action="Eliminar_Registro02.php">
+<form name="form1" method="get" action="vid44_Eliminar_Registro.php">
   <table border="0" align="center">
     <tr>
       <td>Código Artículo</td>

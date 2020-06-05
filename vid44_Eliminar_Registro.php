@@ -17,7 +17,7 @@ and open the template in the editor.
             $nom = $_GET["n_art"];
             $pre = $_GET["precio"];
             $fec = $_GET["fecha"];
-            $im = $_GET["importado"];
+            $imp = $_GET["importado"];
             $por = $_GET["p_orig"];
         
             require ("datosConexionBBDD.php");
@@ -37,20 +37,24 @@ and open the template in the editor.
             mysqli_set_charset($conexion, "utf8");
 
             //Query 'articulos'
-            $consulta = "DELETE FROM ARTICULOS WHERE CODIGOARTICULO = '$cod'";
+            $consulta = "DELETE FROM PRODUCTOS WHERE CODIGOARTICULO = '$cod'";
             //Resultset
             $resultados = mysqli_query($conexion, $consulta);
             
             //Verificamos si los registros se han registrado correctamente
-            if(mysqli_affected_rows($conexion)==0){
+            if($resultados==false){
+                
                 echo ("Error en la consulta");
+                
             }else{
+                
                // echo ("Registro eliminado");                
-                if(mysqli_affected_rows($conexion)==1){
-                    echo("Se ha eliminado " . mysqli_affected_rows($conexion) . " registro");
+                if(mysqli_affected_rows($conexion)==0){
+                    echo "No hay registros que eliminar co ese criterio";
                 }else{
-                    echo("Se ha eliminado " . mysqli_affected_rows($conexion) . " registros");
-                }                
+                    echo "Se ha eliminado " . mysqli_affected_rows($conexion) . " registros";
+                } 
+                
             }
 
             mysqli_close($conexion);
