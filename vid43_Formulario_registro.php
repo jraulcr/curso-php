@@ -10,9 +10,7 @@ h1{
 	color:#00F;
 	border-bottom:dotted #0000FF;
 	width:50%;
-	margin:auto;
-	
-	
+	margin:auto;	
 }
 
 table{
@@ -24,7 +22,6 @@ table{
 body{
 	background-color:#FFC;
 }
-
 
 </style>
 </head>

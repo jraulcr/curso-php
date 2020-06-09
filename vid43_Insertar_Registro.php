@@ -20,16 +20,18 @@ and open the template in the editor.
         $pre = $_GET["precio"];
 
         require ("datosConexionBBDD.php");
+
         $conexion = mysqli_connect($db_host, $db_usuario, $db_contra);
 
-        //Si ha fallado la conexion con la BB.DD. p.e.: en vez de 'localhost' se escribe 'localhossst'
+        //Si ha fallado la conexión con la BB.DD. p.e.: en vez de 'localhost' se escribe 'localhossst'
         if (mysqli_connect_errno()) {
-            echo "<br>***Fallo al conectar la BB.DD***<br>";
-            //Sale del codigo PHP
+            echo "<br>Fallo al conectar la BB.DD.<br>";
+            //Sale del codigo PHP finalizando el proceso de conexión
             exit();
         }
 
-        //Especificar la base de datos en que queremos conectarnos
+        //Especificar la base de datos en que queremos conectarnos por defecto que se utilizará para realizar las consultas.
+        //En caso contrario con 'die' mostramos imprimiendo el error especificado y finaliza el programa.
         mysqli_select_db($conexion, $db_nombre) or die('No se encuentra la BB.DD');
 
         //Utilizar los caracteres latinos
@@ -38,7 +40,8 @@ and open the template in the editor.
         //Query
         $consulta = "INSERT INTO PRODUCTOS (CODIGOARTICULO, SECCION, FECHA, IMPORTADO, NOMBREARTICULO, PAISDEORIGEN, PRECIO) "
                 . "values ('$cod', '$sec', '$fec', '$imp', '$nom', '$por', '$pre')";
-        //Resultset
+        
+        //Resultset. Enviar la consulta 
         $resultados = mysqli_query($conexion, $consulta);
 
         //Verificamos si los registros se han registrado correctamente
@@ -57,7 +60,7 @@ and open the template in the editor.
             echo "</td></tr></table>";
             echo "<br> ";
         }
-
+        //Cerramos la conexión previamente abierta de la bb.dd.
         mysqli_close($conexion);
         ?>
     </body>
