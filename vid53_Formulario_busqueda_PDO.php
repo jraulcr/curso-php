@@ -10,7 +10,7 @@ and open the template in the editor.
         <title>Pagina de busqueda php</title>
     </head>
     <body>        
-        <form action="28Pagina_busqueda_PDO.php" method="get">            
+        <form action="vid53_Pagina_busqueda_PDO.php" method="get">            
             Sección: <input type="text" name="seccion">
             País de origen: <input type="text" name="p_orig"><br>
             <input type="submit" name="enviando" value="¡Dale!">            

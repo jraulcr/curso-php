@@ -35,7 +35,7 @@
     <body>
     <h1> Alta de artículos nuevos</h1>
     
-        <form action="resultados_insertar_registros.php" method="get">
+        <form action="vid50_resultados_insertar_registros.php" method="get">
         <table>
         <tr><td>
             <label>Código Artículo:</label></td><td> <input type="text" name="c_art"></td></tr>

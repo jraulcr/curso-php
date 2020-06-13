@@ -31,7 +31,7 @@ and open the template in the editor.
         mysqli_select_db($conexion, $db_nombre) or die("No se encuentra la BB.DD.");
         mysqli_set_charset($conexion, "utf8");
 
-        $consulta = "DELETE FROM USUARIOS WHERE USUARIO = '$usuario' and CONTRA = '$contra'";
+        $consulta = "DELETE FROM USUARIOS WHERE USUARIO = '$usuario' AND CONTRA = '$contra'";
 
         echo "$consulta<br><br>";
 

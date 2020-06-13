@@ -12,14 +12,7 @@ and open the template in the editor.
     <body>
       <?php
 
-        $c_art = $_GET["buscar"];
-        $secc = $_GET["buscar"];
-        $n_art = $_GET["buscar"];
-        $pre = $_GET["buscar"];
-        $fec = $_GET["buscar"];
-        $imp = $_GET["buscar"];
-        $p_ori = $_GET["buscar"];
-        $enviando = $_GET["buscar"];
+        $pais = $_GET["buscar"];
       
         require ("datosConexionBBDD.php");
 
@@ -39,13 +32,15 @@ and open the template in the editor.
         mysqli_set_charset($conexion, "utf8");         
       
          //Query
-        $sql="SELECT CODIGOARTICULO, SECCION, PRECIO, PAISDEORIGEN FROM ARTICULOS WHERE PAISDEORIGEN = ?";
+        $sql="SELECT CODIGOARTICULO, SECCION, PRECIO, PAISDEORIGEN FROM PRODUCTOS WHERE PAISDEORIGEN = ?";
         
         //Preparamos la consulta con la funcion 'mysqli_prepare' cuyo dos parametros que pide son la 'conexion' y la query 'SQL'
         $resultado = mysqli_prepare($conexion, $sql);
+    
         //Unimos los parametros a la sentencia sql que devolvera 'true' o 'false'
         //Requiere tres parametros: el objeto 'mysqly_stmt' que devuelve el 'mysqli_prepare', el tipo de dato que devolverá 's' si es string o 'i' si es integer o 'd' si es decimal, y la variable
         $ok = mysqli_stmt_bind_param($resultado, "s", $pais);
+    
         //Ejecutar la consulta con la funcion 'mysqli_stmt_execute' que devolvera 'true' o 'false
         // necesita el objeto 'mysqly_stmt'
         $ok = mysqli_stmt_execute($resultado);
@@ -62,8 +57,7 @@ and open the template in the editor.
                echo $codigo . " ". $seccion . " ". $precio . " ". $pais . "<br>"; 
             }
              mysqli_stmt_close($resultado);
-        }             
-        
+        }        
         ?>
     </body>
 </html>

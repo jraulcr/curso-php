@@ -13,7 +13,7 @@ and open the template in the editor.
         <?php
         try {
 
-            $base = new PDO('mysql:host=localhost; dbname=pruebas02', 'root', '');
+            $base = new PDO('mysql:host=localhost; dbname=pruebas', 'root', '');
             echo "¡Conexión OK!";
             
         } catch (Exception $e) {

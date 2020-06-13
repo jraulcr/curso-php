@@ -14,7 +14,7 @@ and open the template in the editor.
         $db_host = "localhost";
         $db_usuario = "root";
         $db_contra = "";
-        $db_nombre = "pruebas02";
+        $db_nombre = "pruebas";
         
         $conexion = new mysqli($db_host, $db_usuario, $db_contra, $db_nombre);
         if ($conexion -> connect_errno) {
@@ -24,7 +24,7 @@ and open the template in the editor.
         //mysqli_set_charset($conexion, "utf8");        
         $conexion ->set_charset("utf8");
         
-        $sql = "SELECT * FROM ARTICULOS";
+        $sql = "SELECT * FROM PRODUCTOS";
         
        // $resultados = mysqli_query($conexion, $sql);
         $resultados = $conexion -> query($sql);

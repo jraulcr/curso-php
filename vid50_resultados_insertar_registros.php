@@ -12,7 +12,14 @@ and open the template in the editor.
     <body>
       <?php
 
-        $pais = $_GET["buscar"];
+        $c_art = $_GET["c_art"];
+        $secc = $_GET["secc"];
+        $n_art = $_GET["n_art"];
+        $pre = $_GET["pre"];
+        $fec = $_GET["fec"];
+        $imp = $_GET["imp"];
+        $p_ori = $_GET["p_ori"];
+        $enviando = $_GET["enviando"];
       
         require ("datosConexionBBDD.php");
 
@@ -32,28 +39,35 @@ and open the template in the editor.
         mysqli_set_charset($conexion, "utf8");         
       
          //Query
-        $sql="SELECT CODIGOARTICULO, SECCION, PRECIO, PAISDEORIGEN FROM ARTICULOS WHERE PAISDEORIGEN = ?";
+        $sql="INSERT INTO PRODUCTOS (CODIGOARTICULO, SECCION, NOMBREARTICULO, PRECIO, FECHA, IMPORTADO, PAISDEORIGEN) VALUES (?, ?, ?, ?, ?, ?, ?)";
         
         //Preparamos la consulta con la funcion 'mysqli_prepare' cuyo dos parametros que pide son la 'conexion' y la query 'SQL'
         $resultado = mysqli_prepare($conexion, $sql);
+      
         //Unimos los parametros a la sentencia sql que devolvera 'true' o 'false'
         //Requiere tres parametros: el objeto 'mysqly_stmt' que devuelve el 'mysqli_prepare', el tipo de dato que devolverá 's' si es string o 'i' si es integer o 'd' si es decimal, y la variable
-        $ok = mysqli_stmt_bind_param($resultado, "s", $pais);
+        $ok = mysqli_stmt_bind_param($resultado, "sssssss", $c_art, $secc, $n_art, $pre, $fec, $imp, $p_ori);
+      
         //Ejecutar la consulta con la funcion 'mysqli_stmt_execute' que devolvera 'true' o 'false
         // necesita el objeto 'mysqly_stmt'
         $ok = mysqli_stmt_execute($resultado);
         
         if($ok==false){
+            
             echo "Error al ejecutar la consulta";
+            
         } else {
             //Asociar variables al resultado de la consulta
-            $ok = mysqli_stmt_bind_result($resultado, $codigo, $seccion, $precio, $pais);
-            echo "articulos encontrados: <br><br>";
+          //  $ok = mysqli_stmt_bind_result($resultado, $codigo, $seccion, $precio, $pais);
+          
+            echo "Agregado nuevo registro <br><br>";
             
             //Asociar variables al resultado de la consulta con la funcion 'mysqli_stmt_fetch' que devolvera 'true' o 'false'
-            while (mysqli_stmt_fetch($resultado)){
+      /*      while (mysqli_stmt_fetch($resultado)){
                echo $codigo . " ". $seccion . " ". $precio . " ". $pais . "<br>"; 
-            }
+            }*/
+            
+            
              mysqli_stmt_close($resultado);
         }             
         

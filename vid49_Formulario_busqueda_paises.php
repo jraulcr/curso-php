@@ -10,7 +10,7 @@ and open the template in the editor.
         <title>Formulario busqueda paises </title>
     </head>
     <body>
-        <form action="resultados_paises.php" method="get">            
+        <form action="vid49_resultados_paises.php" method="get">            
             <label>Buscar: <input type="text" name="buscar"></label>
             <input type="submit" name="enviando" value="¡Dale!">            
         </form>
