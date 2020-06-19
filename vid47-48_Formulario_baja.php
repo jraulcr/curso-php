@@ -10,10 +10,10 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
-        <form action="vid47-48_pagina_baja.php" method="get">
+        <form action="pagina_insertar_usuarios.php" method="get">
             
             <p> <label for="usuario">Usuario: <input type="text" name="usu" id="usuario"/> </label></p>
-            <p><label for="contrasenya">Contraseña: <input type="text" name="con" id="contrasenya"/> </label></p>
+            <p><label for="contra">Contraseña: <input type="text" name="contra" id="contra"/> </label></p>
              <p><button type="submit" name="enviando">Dar baja</button></p>
             
         </form>
