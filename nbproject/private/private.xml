@@ -3,19 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/ProgramasPortables/XAMPP/htdocs/CursoPHP/vid43_Insertar_Registro.php</file>
-            <file>file:/C:/ProgramasPortables/XAMPP/htdocs/CursoPHP/vid44_Eliminar_Registro.php</file>
-            <file>file:/C:/ProgramasPortables/XAMPP/htdocs/CursoPHP/vid46_pagina_resultados_act.php</file>
-            <file>file:/C:/ProgramasPortables/XAMPP/htdocs/CursoPHP/vid47-48_pagina_baja.php</file>
-            <file>file:/C:/ProgramasPortables/XAMPP/htdocs/CursoPHP/datosConexionBBDD.php</file>
-            <file>file:/C:/ProgramasPortables/XAMPP/htdocs/CursoPHP/vid46_Actualizar.php</file>
-            <file>file:/C:/ProgramasPortables/XAMPP/htdocs/CursoPHP/vid43_Formulario_registro.php</file>
-            <file>file:/C:/ProgramasPortables/XAMPP/htdocs/CursoPHP/vid47-48_Formulario_baja.php</file>
-            <file>file:/C:/ProgramasPortables/XAMPP/htdocs/CursoPHP/vid40_formulario_busqueda.php</file>
-            <file>file:/C:/ProgramasPortables/XAMPP/htdocs/CursoPHP/vid40_pagina_busqueda.php</file>
-            <file>file:/C:/ProgramasPortables/XAMPP/htdocs/CursoPHP/vid44_Formulario_eliminar.php</file>
-            <file>file:/C:/ProgramasPortables/XAMPP/htdocs/CursoPHP/vid46_formulario_actualizar.php</file>
-            <file>file:/C:/ProgramasPortables/XAMPP/htdocs/CursoPHP/vid42_insertar_registros.php</file>
+            <file>file:/C:/Programas%20portables/XAMPP/htdocs/CursoPHP/Ejer_CRUD/index.php</file>
+            <file>file:/C:/Programas%20portables/XAMPP/htdocs/CursoPHP/Ejer_CRUD/borrar.php</file>
+            <file>file:/C:/Programas%20portables/XAMPP/htdocs/CursoPHP/Ejer_CRUD/editar.php</file>
+            <file>file:/C:/Programas%20portables/XAMPP/htdocs/CursoPHP/Ejer_CRUD/conexion.php</file>
         </group>
     </open-files>
 </project-private>

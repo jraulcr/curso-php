@@ -2,7 +2,8 @@
 
 try {
 
-    $base = new PDO('mysql:host=localhost; port=3308; dbname=pruebas', 'root', '');
+    //$base = new PDO('mysql:host=localhost; port=3308; dbname=pruebas', 'root', '');
+    $base = new PDO('mysql:host=localhost;  dbname=pruebas', 'root', '');
 
     //ATRIBUTOS QUE VA A ESTABLECER LA CONEXION (eSTABLECER LA NATURALEZA DE EXCEPCIONES DE ERROR)
     $base->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
