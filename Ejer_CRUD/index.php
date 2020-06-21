@@ -12,7 +12,35 @@
         // $conexion=$base->query('SELECT * FROM DATOS_USUARIOS');
         // $registros=$conexion->fetchAll(PDO::FETCH_OBJ);
 
-        $registros = $base->query('SELECT * FROM DATOS_USUARIOS')->fetchAll(PDO::FETCH_OBJ);
+        
+        //****************PAGINACION**********      
+  
+            $tamanyo_paginas = 3;
+            
+            if (isset($_GET['pagina'])) {
+                if ($_GET['pagina'] == 1) {
+                    header('Location:index.php');
+                } else {
+                    $pagina = $_GET['pagina'];
+                }
+            }else{ 
+              $pagina = 1;  
+            }
+
+            
+            $empezar_desde = ($pagina - 1) * $tamanyo_paginas;
+
+            $sql_total = "SELECT * FROM DATOS_USUARIOS";
+
+            $resultado = $base->prepare($sql_total);
+
+            $resultado->execute(array());
+
+            $num_filas = $resultado->rowCount();
+
+            $total_paginas = ceil($num_filas / $tamanyo_paginas);
+               
+        $registros = $base->query("SELECT * FROM DATOS_USUARIOS LIMIT $empezar_desde, $tamanyo_paginas")->fetchAll(PDO::FETCH_OBJ);
 
         if (isset($_POST['cr'])) {
 
@@ -62,9 +90,25 @@
                     <td><input type='text' name='Nom' size='10' class='centrado'></td>
                     <td><input type='text' name='Ape' size='10' class='centrado'></td>
                     <td><input type='text' name='Dir' size='10' class='centrado'></td>
-                    <td class='bot'><input type='submit' name='cr' id='cr' value='Insertar'></td></tr>    
+                    <td class='bot'><input type='submit' name='cr' id='cr' value='Insertar'></td>
+                </tr> 
+                <tr>
+                    <td colspan="4">
+                        
+        <?php        
+                //*********************PAGINACION*********************************
+
+        for ($i = 1; $i <= $total_paginas; $i++) {
+
+            echo "<a href='?pagina=" . $i . "'>" . $i . "</a>  ";
+        }
+        ?>     
+                        
+                    </td>
+                </tr>    
             </table>
         </form>
+         
         <p>&nbsp;</p>
     </body>
 </html>
