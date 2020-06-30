@@ -11,6 +11,11 @@ and open the template in the editor.
     </head>
     <body>
         <?php
+        
+        $id="";
+        $contenido="";
+        $tipo="";
+        
         require ("datosConexionBBDD.php");
 
         $conexion = mysqli_connect($db_host, $db_usuario, $db_contra);
@@ -24,16 +29,22 @@ and open the template in the editor.
 
         mysqli_set_charset($conexion, "utf8");
 
-
-        $consulta = "SELECT FOTO FROM PRODUCTOS WHERE CODIGOARTICULO='AR01'";
+        $consulta = "SELECT * FROM ARCHIVOS WHERE ID=4";//Como ejemplo visualizamos solo el de Id=4
         $resultado = mysqli_query($conexion, $consulta);
 
         while ($fila = mysqli_fetch_array($resultado)) {
-            $ruta_img = $fila["FOTO"];
-            //echo $ruta_img;
-        }
-        ?>
+            $Id  = $fila["Id"];
+            $contenido  = $fila["Contenido"];
+            $tipo  = $fila["Tipo"];
+        }        
         
-        <img src="/intranet/uploads/<?php echo $ruta_img?>" alt="Imagen del primer articulo" width="25%">
+        echo "Id: " . $Id . "<br/><br/>";
+        
+        echo "Tipo: " . $tipo . "<br/><br/>";
+        
+        echo "<img src='data:image/jpeg; base64," . base64_encode($contenido) . "' alt='' width='20%'>";
+        
+        ?>
+      
     </body>
 </html>

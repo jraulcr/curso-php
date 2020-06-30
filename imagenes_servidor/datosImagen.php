@@ -12,7 +12,7 @@ if ($tamagno_imagen <= 3000000) {
 //Ruta de la carpeta destino en servidor
 
         $carpeta_destino = $_SERVER['DOCUMENT_ROOT'] . '/intranet/uploads/';
-echo  $carpeta_destino;
+//echo  $carpeta_destino;
 //Movemos la imagen del directorio temporal al directorio escogido
 
         move_uploaded_file($_FILES['imagen']['tmp_name'], $carpeta_destino . $nombre_imagen);
@@ -37,7 +37,10 @@ echo  $carpeta_destino;
         
         mysqli_set_charset($conexion, "utf8");         
       
-        $sql = "INSERT INTO PRODUCTOS (FOTO) VALUES ('$nombre_imagen')";
+       // $sql = "INSERT INTO PRODUCTOS (FOTO) VALUES ('$nombre_imagen')";
+      $sql = "UPDATE PRODUCTOS SET FOTO='$nombre_imagen' WHERE CODIGOARTICULO='AR02'";
+  
+        
         $resultado = mysqli_query($conexion, $sql);        
 
 echo $nombre_imagen;
