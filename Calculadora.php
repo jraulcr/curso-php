@@ -3,10 +3,13 @@
 class calculadora {
 
     var $ajuda = "Missatge d’ajuda";
-
-    /*function ajuda() {
-        return $valor1*$valor2;
-    }*/
+    
+    public function __construct() {       
+    }
+    
+    function ajuda() {
+        return $this->ajuda;
+    }
 
     function suma($valor1, $valor2) {
         return $valor1 + $valor2;
@@ -29,6 +32,8 @@ class calculadora {
     function encriptaLaClau($clave) {
         $hash = "123Abc-";
         
+         $ajuda = "Hola";
+        
         if (isset($clave)) {
             $encripta = md5($clave . $hash);
         } else {
@@ -37,12 +42,37 @@ class calculadora {
         return $encripta;
     }
 
+    public function __destruct() {
+        $this->ajuda();
+    }
+    
+    
 }
 
 $calcula = new calculadora();
-$operacion = new calculadora();
+$operacion = $calcula->suma(5, 4);
+echo $operacion;
 
-echo $calcula->suma(2, 4);
+//*************************************************//
+
+echo '<br/>';
+echo '<br/>';
+$calcula = new calculadora();
+echo $calcula->suma(1, 1);
+echo '<br/>';
+echo $calcula->resta(3, 1);
+echo '<br/>';
+echo $calcula->producte(2, 2);
+echo '<br/>';
+echo $calcula->divisio(10, 5);
+
+echo '<br/>';
+$encripta = new calculadora();
+echo $encripta->encriptaLaClau("Unitat Formativa UF1844");
+
+echo '<br/>';
+
+echo $encripta->ajuda;
 
 ?>
 

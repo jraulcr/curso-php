@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
@@ -11,7 +11,7 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-        $miconexion = mysqli_connect('localhost', 'root', '', 'bddblog');
+        $miconexion = mysqli_connect('localhost', 'root', '', 'bbddblog', 3306);
         //Conprobar conexion
 
         if (!$miconexion) {
@@ -53,21 +53,35 @@ and open the template in the editor.
             
             echo 'Entrada subida correctamente<br/>';
             
-            if((isset($_FILES['imagen']['nombre']) && ($_FILES['imagen']['error']==UPLOAD_ERR_OK))){
+            if((isset($_FILES['imagen']['name']) && ($_FILES['imagen']['error']==UPLOAD_ERR_OK))){
+              
                 $destino_ruta='imagenes/';
                 move_uploaded_file($_FILES['imagen']['tmp_name'], $destino_ruta . $_FILES['imagen']['name']);
-                echo 'El archivo ' .  $_FILES['imagen']['name'] . ' se ha copiado en el directorio de imágenes';
+                echo 'El archivo ' .  $_FILES['imagen']['name'] . ' se ha copiado en el directorio de imágenes<br/>';
                 
             }else{
                 
-                echo 'El archivo no se ha podido copiar al directorio de imágenes';
+                echo 'El archivo no se ha podido copiar al directorio de imágenes<br/>';
                             
             }
         }
         
-        $miconsulta="INSERT INTO CONTENIDO (TITULO, FECHA, COMENTARIO, IMAGEN) VALUES ('Titulo', 'Fecha', 'Comentario', 'Imagen')";
+        $eltitulo=$_POST['campo_titulo'];        
+        $lafecha= date("Y-m-d H:i:s");
+        $elcomentario=$_POST['area_comentarios'];
+        $laimagen=$_FILES['imagen']['name'];
         
+        $miconsulta="INSERT INTO CONTENIDO (TITULO, FECHA, COMENTARIO, IMAGEN) VALUES ('" . $eltitulo . "', '" . $lafecha . "', '" . $elcomentario . "', '" . $laimagen . "')";
         
+        $resultado= mysqli_query($miconexion, $miconsulta);
+        /*Cerramos conexion*/
+        mysqli_close($miconexion);
+                
+        echo 'Se ha agregado el comentario con éxito';
+              
         ?>
+        
+        <a href="Formulario.php">añadir nueva entrada</a>
+        <a href="Mostrar_blog.php">Ver blog</a>
     </body>
 </html>
