@@ -6,8 +6,29 @@
 </head>
 <body>
 
+    
+    
+    
 	<?php 
-
+        
+        /*
+        $palabra="juan";
+        echo(strtoupper($palabra));
+        */
+        
+       function suma ($num1,$num2){
+           $resultado = $num1 + $num2;           
+           return $resultado;
+       }
+               
+       $numero1=5;
+       $numero2=2;
+       
+       echo(suma($numero1, $numero2))
+        
+             
+        
+/*
 	function frase_mayus($fraseArg, $conversion=true){
 
 		$frase = strtolower($fraseArg);
@@ -45,7 +66,7 @@
 	echo (strtolower($palabra));
 
 	echo (strtoupper($palabra2));
-
+*/
 	?>
 </body>
 </html>
